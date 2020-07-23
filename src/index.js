@@ -15,11 +15,17 @@ const favoriteReducer = (state = [], action) => {
     if(action.type === 'SET_FAVORITE'){
         return [...state, action.payload];
     }
+   
+    
+    return state;
+
+}
+const searchReducer = (state = [], action) => {
     if(action.type === 'SET_SEARCH'){
+        console.log(action.payload);
         return action.payload;
     }
     return state;
-
 }
 
 
@@ -100,7 +106,7 @@ function* watcherSaga(){
   const sagaMiddleware = createSagaMiddleware();
   
   const store = createStore(
-    combineReducers({ favoriteReducer }),
+    combineReducers({ favoriteReducer, searchReducer }),
     applyMiddleware(sagaMiddleware, logger),
   );
   
