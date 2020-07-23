@@ -9,36 +9,26 @@ class Favorite extends Component {
   componentDidMount() {
     this.getFavorite();
     this.getCategory();
-    this.createValueArray();
   }
-  createValueArray = () => {
-    console.log(
-      "in createValueArray. this.state.valueArray is",
-      this.state.valueArray
-    );
-    console.log(this.props.reduxState.categoryReducer.length);
-    for (let i = 0; i < this.props.reduxState.categoryReducer.length; i++) {
-      this.setState({
-        valueArray: this.props.reduxState.categoryReducer[i]
-      });
-      console.log("In for loop: this.state.valueArray is ", this.state.valueArray);
-    }
-  };
+
   getCategory = () => {
     this.props.dispatch({ type: "FETCH_CATEGORY" });
   };
   getFavorite = () => {
     this.props.dispatch({ type: "FETCH_FAVORITE" });
   };
-  handleChange = (event) => {
-    const target = event.target;
-    //const value = target.name === "isGoing" ? target.checked : target.value;
-    const name = target.name;
+
+  onChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
 
     this.setState({
-      [name]: target.value,
+      formControls: {
+        [name]: value,
+      },
     });
   };
+
   render() {
     return (
       <div>
@@ -59,18 +49,15 @@ class Favorite extends Component {
                 <li key={key}>
                   <img src={x.url} alt={x.name}></img>
                 </li>
-                <form onSubmit={this.handleSubmit}>
-                  <label>
-                    Select a category for this gif:
-                    <select
-                      multiple={true}
-                      value={["him","her"]}
-                      onChange={this.handleChange}
-                      name={x.id}
-                    ></select>
-                  </label>
-                  <input type="submit" value="Submit" />
-                </form>
+                <select
+                  value={this.state.value}
+                  onChange={this.onChange}
+                  name={"myName"}
+                >
+                  {this.props.reduxState.categoryReducer.map((x) => (
+                    <option value={this.id}>{x.name}</option>
+                  ))}
+                </select>
               </>
             );
           })}
