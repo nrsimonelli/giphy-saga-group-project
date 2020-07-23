@@ -60,6 +60,7 @@ function* deleteFavoriteSaga(action) {
 
 // Need to replace route and action type below!
 function* getFavoriteSaga() {
+    console.log("in getFavoriteSaga");
   try {
     const response = yield axios.get("/api/favorite/");
     yield put({ type: "SET_FAVORITE", payload: response.data });

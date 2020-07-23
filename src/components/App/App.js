@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../Search/Search'
-import Favorites from '../Favorites/Favorites';
+import Favorite from '../Favorite/Favorite';
 
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <h1>Giphy Search!</h1>
         <Search />
-        <Favorites />
+        <Favorite />
       </div>
     );
   }
