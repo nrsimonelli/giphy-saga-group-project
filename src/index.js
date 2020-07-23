@@ -11,7 +11,8 @@ import axios from "axios";
 // REDUCER
 const favoriteReducer = (state = [], action) => {
   if (action.type === "SET_FAVORITE") {
-    return [...state, action.payload];
+    console.log("in favoriteReducer action.payload is", action.payload);
+    return action.payload;
   }
 
   return state;
@@ -60,7 +61,7 @@ function* deleteFavoriteSaga(action) {
 
 // Need to replace route and action type below!
 function* getFavoriteSaga() {
-    console.log("in getFavoriteSaga");
+  console.log("in getFavoriteSaga");
   try {
     const response = yield axios.get("/api/favorite/");
     yield put({ type: "SET_FAVORITE", payload: response.data });

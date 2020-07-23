@@ -14,6 +14,11 @@ class Favorite extends Component {
       <div>
         <h1>Hello from favorite</h1>
         {JSON.stringify(this.props.reduxState.favoriteReducer)}
+        <ul>
+          {this.props.reduxState.favoriteReducer.map((x, key) => {
+            return <li key={key}><img src={x.url}></img></li>
+          })}
+        </ul>
       </div>
     );
   }

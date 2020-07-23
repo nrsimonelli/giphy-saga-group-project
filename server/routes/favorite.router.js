@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   pool
     .query('SELECT * from "favorite";')
     .then((result) => {
-      console.log("in /api/favorite GET result.rows is", result.rows);
+      console.log("in /api/favorite GET");
       res.send(result.rows);
     })
     .catch((error) => {
