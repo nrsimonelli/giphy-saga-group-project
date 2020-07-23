@@ -18,6 +18,15 @@ const favoriteReducer = (state = [], action) => {
   return state;
 };
 
+const categoryReducer = (state = [], action) => {
+  if (action.type === "SET_CATEGORY") {
+    console.log("in categoryReducer action.payload is", action.payload);
+    return action.payload;
+  }
+
+  return state;
+};
+
 //SAGA STUFF ----
 //"Mail sorter"
 // FETCH -> GET
@@ -31,6 +40,7 @@ function* watcherSaga() {
   yield takeEvery("ADD_FAVORITE", addFavoriteSaga);
   yield takeEvery("DELETE_FAVORITE", deleteFavoriteSaga);
   yield takeEvery("CHANGE_CATEGORY", changeCategorySaga);
+  yield takeEvery("FETCH_CATEGORY", getCategorySaga);
 }
 // CRUD
 // search query to bring images to display (separate)
@@ -71,6 +81,17 @@ function* getFavoriteSaga() {
 }
 
 // Need to replace route and action type below!
+function* getCategorySaga() {
+  console.log("in getCategorySaga");
+  try {
+    const response = yield axios.get("/api/category/");
+    yield put({ type: "SET_CATEGORY", payload: response.data });
+  } catch (error) {
+    console.log("Error with Get:", error);
+  }
+}
+
+// Need to replace route and action type below!
 function* changeCategorySaga() {
   try {
     yield console.log("you changedCategorySaga");
@@ -91,7 +112,7 @@ function* getQueryResultSaga() {
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  combineReducers({ favoriteReducer }),
+  combineReducers({ categoryReducer, favoriteReducer }),
   applyMiddleware(sagaMiddleware, logger)
 );
 
