@@ -17,6 +17,15 @@ const favoriteReducer = (state = [], action) => {
 
   return state;
 };
+const searchReducer = (state = [], action) => {
+    if(action.type === 'SET_SEARCH'){
+        console.log(action.payload);
+        return action.payload.data.data;
+    }
+    return state;
+}
+
+  
 
 const categoryReducer = (state = [], action) => {
   if (action.type === "SET_CATEGORY") {
@@ -91,6 +100,19 @@ function* getCategorySaga() {
   }
 }
 
+  // Need to replace route and action type below!
+  function* getQueryResultSaga(action){ //<----------------
+      try{
+          const response = yield axios.get(`/api/search/${action.payload}`);
+          yield put ({type: 'SET_SEARCH', payload: response});
+          
+      }catch(err){
+        console.log('error', err);
+      }
+  }
+  
+  
+
 // Need to replace route and action type below!
 function* changeCategorySaga() {
   try {
@@ -99,20 +121,11 @@ function* changeCategorySaga() {
     console.log("error", err);
   }
 }
-// Need to replace route and action type below!
-function* getQueryResultSaga() {
-  try {
-    yield console.log("you did getQueryResultSaga");
-  } catch (err) {
-    console.log("error", err);
-  }
-}
-
 // Saga Setup #2 - create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  combineReducers({ categoryReducer, favoriteReducer }),
+  combineReducers({ categoryReducer, favoriteReducer, searchReducer }),
   applyMiddleware(sagaMiddleware, logger)
 );
 

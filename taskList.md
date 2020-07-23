@@ -10,7 +10,7 @@
 - [x] component creation
 - [x] router file creation
 - [x] .env file and reference 
-- [ ] Search interface, input field for string
+- [x] Search interface, input field for string
     - [ ] API syntax / Search Endpoint
     - [ ] dropdown for number of display
 - [ ] Place to display result
