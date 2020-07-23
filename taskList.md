@@ -2,19 +2,19 @@
 > Eric, Nick, Mase
 
 ## SQL ##
-- [ ] Whiteboard table relationships
-- [ ] Spin up SQL syntax
-- [ ] Create necessary tables and/or structure
+- [x] Whiteboard table relationships
+- [x] Spin up SQL syntax
+- [x] Create necessary tables and/or structure
 
 ## Search View ##
-- [ ] component creation
-- [ ] router file creation
-- [ ] .env file and reference 
+- [x] component creation
+- [x] router file creation
+- [x] .env file and reference 
 - [ ] Search interface, input field for string
     - [ ] API syntax / Search Endpoint
     - [ ] dropdown for number of display
 - [ ] Place to display result
-- [ ] Button to favorite
+- [x] Button to favorite
 - [ ] ID information to save + category to store
 
 ## Favorites View
