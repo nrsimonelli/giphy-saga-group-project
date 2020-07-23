@@ -13,10 +13,13 @@ class Favorite extends Component {
     return (
       <div>
         <h1>Hello from favorite</h1>
+        Stringified data from favoriteReducer is: 
+        <br />
+        <br />
         {JSON.stringify(this.props.reduxState.favoriteReducer)}
         <ul>
           {this.props.reduxState.favoriteReducer.map((x, key) => {
-            return <li key={key}><img src={x.url}></img></li>
+            return <li key={key}><img src={x.url} alt={x.name}></img></li>
           })}
         </ul>
       </div>
