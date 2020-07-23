@@ -7,6 +7,9 @@
 - [ ] Create necessary tables and/or structure
 
 ## Search View ##
+- [ ] component creation
+- [ ] router file creation
+- [ ] .env file and reference 
 - [ ] Search interface, input field for string
     - [ ] API syntax / Search Endpoint
     - [ ] dropdown for number of display
