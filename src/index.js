@@ -23,7 +23,7 @@ const favoriteReducer = (state = [], action) => {
 const searchReducer = (state = [], action) => {
     if(action.type === 'SET_SEARCH'){
         console.log(action.payload);
-        return action.payload;
+        return action.payload.data.data;
     }
     return state;
 }

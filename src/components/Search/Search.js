@@ -48,7 +48,7 @@ class Search extends Component {
           {/* {JSON.stringify(this.props.reduxState.searchReducer)} */}
          {wasClicked
          ? 
-         this.props.reduxState.searchReducer.data.data.map((item, index)=>{
+         this.props.reduxState.searchReducer.map((item, index)=>{
             return (<p key={index}>{item.url}</p>)})
          : 
          'false'}
