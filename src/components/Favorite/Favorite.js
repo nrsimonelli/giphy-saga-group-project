@@ -38,6 +38,7 @@ class Favorite extends Component {
         <br />
         {JSON.stringify(this.props.reduxState.favoriteReducer)}
         <br />
+        <br />
         Stringified data from categoryReducer is:
         <br />
         <br />
