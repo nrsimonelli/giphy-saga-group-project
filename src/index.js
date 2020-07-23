@@ -15,7 +15,9 @@ const favoriteReducer = (state = [], action) => {
     if(action.type === 'SET_FAVORITE'){
         return [...state, action.payload];
     }
-    
+    if(action.type === 'SET_SEARCH'){
+        return action.payload;
+    }
     return state;
 
 }
@@ -84,9 +86,11 @@ function* watcherSaga(){
       }
   }
   // Need to replace route and action type below!
-  function* getQueryResultSaga(){
+  function* getQueryResultSaga(action){ //<----------------
       try{
-          yield console.log('you did getQueryResultSaga')
+          const response = yield axios.get(`/api/search/${action.payload}`);
+          yield put ({type: 'SET_SEARCH', payload: response});
+          
       }catch(err){
         console.log('error', err);
       }
