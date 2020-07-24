@@ -17,7 +17,11 @@ class Favorite extends Component {
   getFavorite = () => {
     this.props.dispatch({ type: "FETCH_FAVORITE" });
   };
-
+  
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+  
   onChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
