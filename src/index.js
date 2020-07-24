@@ -18,14 +18,12 @@ const favoriteReducer = (state = [], action) => {
   return state;
 };
 const searchReducer = (state = [], action) => {
-    if(action.type === 'SET_SEARCH'){
-        console.log(action.payload);
-        return action.payload.data.data;
-    }
-    return state;
-}
-
-  
+  if (action.type === "SET_SEARCH") {
+    console.log(action.payload);
+    return action.payload.data.data;
+  }
+  return state;
+};
 
 const categoryReducer = (state = [], action) => {
   if (action.type === "SET_CATEGORY") {
@@ -90,7 +88,7 @@ function* getFavoriteSaga() {
 }
 
 // Need to replace route and action type below!
-function* getCategorySaga() {
+function* getCategorySaga(action) {
   console.log("in getCategorySaga");
   try {
     const response = yield axios.get("/api/category/");
@@ -100,23 +98,22 @@ function* getCategorySaga() {
   }
 }
 
-  // Need to replace route and action type below!
-  function* getQueryResultSaga(action){ //<----------------
-      try{
-          const response = yield axios.get(`/api/search/${action.payload}`);
-          yield put ({type: 'SET_SEARCH', payload: response});
-          
-      }catch(err){
-        console.log('error', err);
-      }
+// Need to replace route and action type below!
+function* getQueryResultSaga(action) {
+  //<----------------
+  try {
+    const response = yield axios.get(`/api/search/${action.payload}`);
+    yield put({ type: "SET_SEARCH", payload: response });
+  } catch (err) {
+    console.log("error", err);
   }
-  
-  
+}
 
 // Need to replace route and action type below!
-function* changeCategorySaga() {
+function* changeCategorySaga(action) {
   try {
-    yield console.log("you changedCategorySaga");
+    yield console.log("you changedCategorySaga. action.payload is:", action.payload);
+    yield axios.put("/api/favorite/", action.payload);
   } catch (err) {
     console.log("error", err);
   }

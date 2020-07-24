@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import FavoriteItem from "../FavoriteItem/FavoriteItem";
 
 class Favorite extends Component {
   state = {
@@ -18,6 +19,10 @@ class Favorite extends Component {
     this.props.dispatch({ type: "FETCH_FAVORITE" });
   };
 
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  };
+
   onChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -32,7 +37,7 @@ class Favorite extends Component {
   render() {
     return (
       <div>
-        <h1>Hello from favorite</h1>
+        {/* <h1>Hello from favorite</h1>
         Stringified data from favoriteReducer is:
         <br />
         <br />
@@ -42,23 +47,12 @@ class Favorite extends Component {
         Stringified data from categoryReducer is:
         <br />
         <br />
-        {JSON.stringify(this.props.reduxState.categoryReducer)}
+        {JSON.stringify(this.props.reduxState.categoryReducer)} */}
         <ul>
           {this.props.reduxState.favoriteReducer.map((x, key) => {
             return (
               <>
-                <li key={key}>
-                  <img src={x.url} alt={x.name}></img>
-                </li>
-                <select
-                  value={this.state.value}
-                  onChange={this.onChange}
-                  name={"myName"}
-                >
-                  {this.props.reduxState.categoryReducer.map((x) => (
-                    <option value={this.id}>{x.name}</option>
-                  ))}
-                </select>
+                <FavoriteItem thisItem={x} />
               </>
             );
           })}
