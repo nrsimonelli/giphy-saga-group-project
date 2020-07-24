@@ -1,0 +1,103 @@
+body {
+    font-family:  'Lato', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0px;
+    background-color: #121212;
+    color: rgba(255,255,255,.87);
+
+}
+
+.theme {
+    --primary: #121212;
+    --secondary: #232323;
+    --lifted: #343434;
+    --lightest: #454545;
+    --highlight: #3AFAC3;
+    --lowlight: #00e489;
+    --text: rgba(255,255,255,.87);
+    
+}
+
+/* Header Component */
+.header {
+    background-color: var(--secondary);
+    color: var(--text);
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 35vh;
+    min-height: 240px;
+}
+.title {
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    padding-left: 10vw;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    color: var(--highlight);
+}
+.subtitle {
+    font-size: 3rem;
+    font-weight: 100;
+    letter-spacing: 0.6rem;
+    text-align: right;
+    padding-right: 21vw;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: var(--lowlight);
+}
+.navigation button {
+    background: none;
+    border: none;
+    color: var(--lowlight);
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navigation {
+    color: var(--highlight);
+    font-size: 1.7rem;
+    font-weight: 100;
+    padding-top: 0px;
+    padding-left: 5vw;
+}
+
+/* Search Page */
+.searchBar {
+    position: fixed;
+    float: left;
+    margin-left: 50vw;
+    margin-top: 5rem;
+}
+.searchBar button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--highlight);
+    font-weight: 100;
+}
+.searchBar input {
+    background: none;
+    border: none;
+    background-color: var(--lightest);
+    height: 2.2rem;
+    width: 30vw;
+    font-size: 1.8rem;
+    color: var(--highlight);
+}
+
+/* images */
+.imageContainer{
+    display: inline-block;
+    padding: 5px;
+}
+.searchImage{
+    width: 200px;
+    height: 200px;
+    
+}

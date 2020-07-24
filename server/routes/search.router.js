@@ -3,8 +3,7 @@ const { default: Axios } = require('axios');
 const router = express.Router();
 
 router.get('/:string', (req, res) => {
-    Axios.get(`http://api.giphy.com/v1/gifs/search?q=${req.params.string}&api_key=${process.env.GIPHY_API_KEY}&limit=10`)
-    // Axios.get(`http://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_API_KEY}&tag=burrito`)
+    Axios.get(`http://api.giphy.com/v1/gifs/search?q=${req.params.string}&api_key=${process.env.GIPHY_API_KEY}&limit=27`)
 		.then((response) => {
 			console.log('sending back data', response.data);
 			res.send(response.data);
