@@ -1,66 +1,45 @@
-# Giphy Search and Favorites
+# Giphy Saga Group Project
 
-This week you will be building a Giphy searching and favoriting application which allows the user to save images and sort them into categories.
+Mase Santos, Eric Elvendahl, Nick Simonelli
 
-In this project you will need to utilize React, Redux, Sagas and integrate them with a 3rd party API....all in a group project!
+## Description
 
-## Team Setup
-Do not clone this repository. Instead, have one person download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Make your team collaborators. Have them clone directly from the person who did the setup, not fork.
+>Duration, 24-hour Group Effort
 
+This one day project was focused on utilizing Saga and api requests to create a more versatile and dynamic end product. The primary task of this project included providing the user with a search page where they would be able to browse for gifs. When desired one could favorite and image to which they would later be able to view and categorize.
 
-## Create Database and Tables
+With more time we would like to continue to add feedback visuals around buttons and inputs to provide the user with more natural response when interacting with our application. We would also like to provide users the option to name multiple categories per favorite image should they desire.
 
-See the `database.sql` file for database setup and details. It offers some of the SQL to get you started but you'll need to set up your tables and the relationships between them. 
+## Screen Shots
 
+![Home Screen](public/images/home.png)
+![Search Screen](public/images/search.png)
+![Search Results](public/images/result.png)
 
-## Development Setup Instructions
+## Installation
 
-* Run `npm install`
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run server` to start the server
-* Run `npm run client` to start the client
-* Navigate to `localhost:3000`
+1. Set-up 'giphy_search_favorites' using the provided sql file
+2. Currently you will need to provide your own Giphy API key by creating a dotenv file after cloning this repo. This can be done via [GIPHY Developers](https://developers.giphy.com/)
+3. npm intall  
+4. npm run server, npm run client
 
+## Usage
 
-## Base Features
-
-You will need 2 views for the Base Features. You should put some thought into the UI and how to style it.
-
-
-### Search View
-
-- Allow a user to enter a search string and submit a search request.
-- Query the `Giphy API Search Endpoint` with the given search string FROM THE SERVER.
-- Display the results on the DOM.
-- Allow a user to Favorite any of the result images. You'll need to think about what information to save to your own database. Generally you only store the minimum needed to show this image again on the Favorites view.
+1. Navigate to the search page and begin to browse for gifs.
+2. Favorite gifs as desired.
+3. Navigate to the favorites page to view and categorize your collection.
+4. Repeat as often as you like!
 
 
-### Favorites View
+## Technologies Used
 
-- Allow a user to see all of the Giphy images they have Favorited. The actual images need to appear on the DOM.
-- Allow a user to set a category for a favorite image.
-    - Each favorite image can only have 1 category at a time.
-    - The category needs to be one of the categories in the database.
+- [React.js](https://reactjs.org/)
+- [Redux.js](https://redux.js.org/)
+- [Saga](https://redux-saga.js.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Node.js](https://nodejs.org/en/) 
+- [Express.js](https://expressjs.com/)
+- [PostgreSQL/Postico](https://www.postgresql.org/)
 
-
-## Existing Routes
-
-You are given two router modules on the server with stubs for the routes you may need.
-
-- `GET /api/category` (complete)
-    - returns a list of all categories from the table ordered by name. You may test it if your server is running: [http://localhost:5000/api/category](http://localhost:5000/api/category)
-
-- `POST /api/favorite` (incomplete)
-    - for adding a new favorite image. You'll need to think about what is needed. Does it need a category?
-
-- `PUT /api/favorite` (incomplete)
-    - for setting a category on an image. It expects both a query parameter and a data body. Feel free to change it.
-
-
-## Stretch Features
-
-1. Allow favorites to be removed/unfavorited
-2. Allow for a favorite to have many categories
-3. Implement the pagination feature of the Giphy search results
-4. Add another view that allows a user to manage (create, edit, delete) categories
-
+## Acknowledgement
+Thank you to our instructors Mary and Dev as well as our amazing fellow Paxos cohort members at [Prime Digital Academy](www.primeacademy.io)! This work is only possible with the generous amount of knowledge, support, and encouragement that they provide each of us.

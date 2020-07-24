@@ -14,15 +14,15 @@
 - [x] router file creation
 - [x] .env file and reference
 - [x] Search interface, input field for string
-  - [ ] API syntax / Search Endpoint
-  - [ ] dropdown for number of display
-- [ ] Place to display result
+  - [x] API syntax / Search Endpoint
+  - [x] dropdown for number of display
+- [x] Place to display result
 - [x] Button to favorite
-- [ ] ID information to save + category to store
+- [x] ID information to save + category to store
 
 ## Favorites View
 
 - [x] GET to DB for favorites
 - [x] Map and display on page (actual images)
 - [x] Allow user to select category for image from db
-- [ ]
+
