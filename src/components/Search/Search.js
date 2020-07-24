@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Header from '../Header/Header'
 const putReduxStateToProps = reduxState => ({
   reduxState
 });
 
 class Search extends Component {
 
-
-    
   state = {
     searchQuery: '',
     wasClicked: false
   }
-
-  
 
   handleSearchQuery = (event) => {
     this.setState({
@@ -40,10 +36,23 @@ class Search extends Component {
     return (
         
       <div>
-        <h1>Hello from search</h1>
-        <input name="search" type="text" value={this.state.searchQuery} 
-        onChange={this.handleSearchQuery}/>
-        <button onClick={this.handleSearchSubmit}>Search</button>
+        <Header 
+          title="Wild Giphy"
+          subtitle="Saga"
+          previous="Favorites"
+          next="Home"
+        />
+        
+        <div className='searchBar'>
+          <input
+            name="search" 
+            type="text" 
+            value={this.state.searchQuery} 
+            onChange={this.handleSearchQuery}
+          />
+          <button onClick={this.handleSearchSubmit}>Search</button>
+        </div>
+        
         <div id="results">
           {/* {JSON.stringify(this.props.reduxState.searchReducer)} */}
          {wasClicked
