@@ -21,9 +21,9 @@ router.get("/", (req, res) => {
 // add a new favorite
 router.post("/", (req, res) => {
   console.log("POST /api/favorite");
-  console.log('req.body ', req.body.title)
+  console.log('req.body.images.original.url: ', req.body.images.original.url)
   pool
-    .query(`INSERT INTO "favorite" ("name", "url") VALUES ('${req.body.title}', '${req.body.url}');`)
+    .query(`INSERT INTO "favorite" ("name", "url") VALUES ('${req.body.title}', '${req.body.images.original.url}');`)
     .then((result) => {
       console.log("in /api/favorite POST");
       res.sendStatus(201);
