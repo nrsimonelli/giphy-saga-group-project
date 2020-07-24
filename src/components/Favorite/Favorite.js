@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
+import Header from '../Header/Header';
 
 class Favorite extends Component {
   state = {
@@ -37,6 +38,13 @@ class Favorite extends Component {
   render() {
     return (
       <div>
+        <Header 
+        title="Favorites" 
+        subtitle="Saga" 
+        previous="Search" 
+        next="Home" 
+        />
+
         {/* <h1>Hello from favorite</h1>
         Stringified data from favoriteReducer is:
         <br />
@@ -48,15 +56,15 @@ class Favorite extends Component {
         <br />
         <br />
         {JSON.stringify(this.props.reduxState.categoryReducer)} */}
-        <ul>
+        {/* <ul> */}
           {this.props.reduxState.favoriteReducer.map((x, key) => {
             return (
-              <>
+              <div className='imageContainer'>
                 <FavoriteItem thisItem={x} />
-              </>
+              </div>
             );
           })}
-        </ul>
+        {/* </ul> */}
       </div>
     );
   }

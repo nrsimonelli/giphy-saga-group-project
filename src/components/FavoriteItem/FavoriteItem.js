@@ -37,12 +37,13 @@ class FavoriteItem extends Component {
         {/* I am a FavoriteItem and my props is:
         <br />
         {JSON.stringify(this.props)} */}
-        <img src={this.props.thisItem.url} alt={this.props.thisItem.name} />
+        <img className='searchImage' src={this.props.thisItem.url} alt={this.props.thisItem.name}></img>
+        {/* {JSON.stringify(this.props.thisItem.url)} */}
         <br />
         {/* below drawn from tutorial at: https://reactjs.org/docs/forms.html */}
         <form onSubmit={this.handleSubmit}>
           <label>
-            Pick your favorite flavor:
+            Select Category:
             <select
               value={this.state.passedCategory}
               onChange={this.handleChange}

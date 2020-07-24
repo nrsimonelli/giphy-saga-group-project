@@ -20,7 +20,18 @@ router.get("/", (req, res) => {
 
 // add a new favorite
 router.post("/", (req, res) => {
-  res.sendStatus(200);
+  console.log("POST /api/favorite");
+  console.log('req.body ', req.body.title)
+  pool
+    .query(`INSERT INTO "favorite" ("name", "url") VALUES ('${req.body.title}', '${req.body.url}');`)
+    .then((result) => {
+      console.log("in /api/favorite POST");
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log("Error POST /api/favorite", error);
+      res.sendStatus(500);
+    });
 });
 
 router.put("/", (req, res) => {

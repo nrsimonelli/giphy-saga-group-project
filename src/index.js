@@ -58,11 +58,10 @@ function* watcherSaga() {
 
 function* addFavoriteSaga(action) {
   try {
-    yield axios.post("/api/plant", action.payload);
+    yield axios.post("/api/favorite", action.payload);
     // its like getPlantSaga with extra steps?
-    yield put({ type: "FETCH_PLANT" });
   } catch (error) {
-    console.log("Error with Get:", error);
+    console.log("Error with Post:", error);
   }
 }
 
