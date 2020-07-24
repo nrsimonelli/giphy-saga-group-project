@@ -54,11 +54,10 @@ class Search extends Component {
         </div>
         
         <div id="results">
-          {/* {JSON.stringify(this.props.reduxState.searchReducer)} */}
          {wasClicked
          ? 
          this.props.reduxState.searchReducer.map((item, index)=>{
-            return ( <div> <img src={item.images.original.url}></img>{item.images.original.url}</div> )})
+            return ( <div className='imageContainer'> <img className='searchImage' src={item.images.original.url}></img></div> )})
          : 
          'false'}
           

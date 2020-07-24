@@ -90,3 +90,14 @@ body {
     font-size: 1.8rem;
     color: var(--highlight);
 }
+
+/* images */
+.imageContainer{
+    display: inline-block;
+    padding: 5px;
+}
+.searchImage{
+    width: 200px;
+    height: 200px;
+    
+}
